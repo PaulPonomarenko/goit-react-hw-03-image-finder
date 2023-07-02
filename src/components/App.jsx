@@ -7,6 +7,7 @@ import { ErrorMasage } from './ErrorMessage/ErrorMasage';
 import { ImageGallry } from './ImageGallery/ImageGallery';
 import { Modal } from './Modal/Modal';
 import { Button } from './Button/Button';
+import { Loader } from './Loader/Loader';
 
 export class App extends React.Component {
   state = {
@@ -33,7 +34,7 @@ export class App extends React.Component {
           totalImage: data.totalHits,
         }));
         if (data.totalHits === 0) {
-          throw new Error('По вашому запиту картинок не знайдено');
+          throw new Error('По вашому запиту картинок не знайдено...');
         }
       } catch (error) {
         this.setState({ error: error.message });
@@ -53,7 +54,7 @@ export class App extends React.Component {
 
   handleSearch = inputValue => {
     if (this.state.inputValue === inputValue) {
-      return toast.error('Картинки по цьому запиту вже на екрані');
+      return toast.error('Картинки по цьому запиту вже на екрані!');
     }
     this.setState({
       inputValue,
@@ -81,7 +82,7 @@ export class App extends React.Component {
           <Button onClick={this.handleLoadMore} />
         )}
         {totalImage === 0 && <ErrorMasage error={error} />}
-        {loading && <h2>Загрузка...</h2>}
+        {loading && <Loader />}
         {isOpen && <Modal modalSrc={modalSrc} onClose={this.onModalClose} />}
       </>
     );

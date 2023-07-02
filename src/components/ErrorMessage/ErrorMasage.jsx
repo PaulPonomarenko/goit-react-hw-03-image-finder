@@ -1,7 +1,9 @@
+import css from './ErrorMasage.module.css';
+
 export const ErrorMasage = ({ error }) => {
   return (
     <>
-      <h2>{error}</h2>
+      <h2 className={css.ErrorMasage}>{error}</h2>
     </>
   );
 };
