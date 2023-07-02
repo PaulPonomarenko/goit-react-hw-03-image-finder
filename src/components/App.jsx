@@ -4,7 +4,7 @@ import { Searchbar } from './Searchbar/Searchbar';
 import 'react-toastify/dist/ReactToastify.css';
 import { gallaryApi } from 'api';
 import { ErrorMasage } from './ErrorMessage/ErrorMasage';
-import { ImageGallry } from './ImageGallery/ImageGallery';
+import { ImageGallery } from './ImageGallery/ImageGallery';
 import { Modal } from './Modal/Modal';
 import { Button } from './Button/Button';
 import { Loader } from './Loader/Loader';
@@ -76,7 +76,7 @@ export class App extends React.Component {
     return (
       <>
         <Searchbar onSubmit={this.handleSearch} />
-        <ImageGallry pictures={pictures} onClick={this.onModalOpen} />
+        <ImageGallery pictures={pictures} onClick={this.onModalOpen} />
         <ToastContainer autoClose={3000} />
         {totalImage / pictures.length > page && (
           <Button onClick={this.handleLoadMore} />
